@@ -1,0 +1,15 @@
+syntax: glob
+
+lib
+bin/
+obj/
+_ReSharper.*
+
+*.Generated.cs
+*.cache
+*.user
+*.suo
+*.pdb
+
+*.log
+TestResult.xml

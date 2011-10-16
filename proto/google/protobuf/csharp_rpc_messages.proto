@@ -1,0 +1,108 @@
+// Copyright 2010-2011 by Roger Knapp, Licensed under the Apache License, Version 2.0
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//   http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package google.protobuf.rpc_messages;
+import "google/protobuf/csharp_options.proto";
+option (google.protobuf.csharp_file_options).public_classes = true;
+option (google.protobuf.csharp_file_options).expand_namespace_directories = false;
+option (google.protobuf.csharp_file_options).namespace = "Google.ProtocolBuffers.Rpc.Messages";
+option (google.protobuf.csharp_file_options).umbrella_classname = "CSharpRpcMessages";
+option (google.protobuf.csharp_file_options).umbrella_namespace = "";
+
+option optimize_for = SPEED;
+
+// Request/Response headers for providing call context and method name over stream transports
+message RpcRequestHeader {
+  optional int32 version = 1 [default = 1];
+  optional string method_name = 2;
+  optional bytes message_id = 3;
+  optional int32 content_length = 4;
+  optional RpcCallContext call_context = 5;
+
+  //Should be used exclusively by transport implementations, others should extend RpcCallContext
+  extensions 1000 to max;
+}
+
+message RpcResponseHeader {
+  optional int32 version = 1 [default = 1];
+  optional int32 content_length = 4;
+  optional RpcCallContext call_context = 5;
+  optional bytes message_id = 6;
+  optional bool success = 7 [default = true];
+  optional RpcExceptionInfo exception = 8;
+
+  //Should be used exclusively by transport implementations, others should extend RpcCallContext
+  extensions 1000 to max;
+}
+
+// Call context for allowing extendable state tranfer from client to server and back.
+message RpcCallContext {
+  optional bytes session_id = 1;
+  extensions 100 to max;
+}
+
+// Optional, but allows describing exceptions so that they can be reconstituted on the client.
+message RpcExceptionInfo {
+  optional string assembly_name = 1 [default = "mscorlib"];
+  optional string full_type_name = 2 [default = "System.ApplicationException"];
+  optional bool has_full_details = 3;
+  optional string class_name = 4;
+  optional string message = 5;
+  optional RpcExceptionInfo inner_exception = 6;
+  optional string help_url = 7;
+  optional string stack_trace_string = 8;
+  optional string remote_stack_trace_string = 9;
+  optional int32 remote_stack_index = 10;
+  optional string exception_method = 11;
+  optional int32 h_result = 12;
+  optional string source = 13;
+  repeated RpcExceptionData exception_data = 14;
+
+  message RpcExceptionData {
+    optional string member = 1;
+    optional string type = 2;
+    optional string value = 3;
+  }
+
+  extensions 100 to max;
+}
+
+// Used when no argument or return type is expected.
+message RpcVoid {
+}
+
+// Provides an extendable ping request to validate server connectivity.
+message RpcPingRequest {
+  extensions 100 to max;
+}
+
+message RpcPingResponse {
+  extensions 100 to max;
+}
+
+// Message used to transport a large message over a protocol that limits the message size.
+message RpcMultiPartRequest {
+  enum RpcMessageStatus { CONTINUE = 1; CANCEL = 2; COMPLETE = 3; }
+  optional RpcMessageStatus message_status = 1 [default = CANCEL];
+  optional bytes transaction_id = 2;
+  optional string method_name = 3;
+  optional int32 total_bytes = 4;
+  optional int32 current_position = 5;
+  optional int32 bytes_sent = 6;
+  optional bytes payload_bytes = 7;
+}
+
+message RpcMultiPartResponse {
+  optional bool continue = 1 [default = true];
+  optional bytes response_bytes = 2;
+}
