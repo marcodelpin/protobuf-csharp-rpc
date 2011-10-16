@@ -17,7 +17,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright 2008-2011 by Roger Knapp, Licensed under the Apache License, Version 2.0</copyright>
 
-    <tags>B+ Tree BPlus BTree BPlusTree Dictionary Binary File Storage</tags>
+    <tags>RPC Protocol protobuf ipc lrpc tcp namedpipes</tags>
     <summary>A small rpc library for using Google's ProtoBuffer services over Win32 RPC on LRPC/TCP/Named Pipes.  Integrates with NTLM/Kerberos authentication.</summary>
     <releaseNotes>See the main project page (http://code.google.com/p/protobuf-csharp-rpc/) for release notes.</releaseNotes>
     <description>
