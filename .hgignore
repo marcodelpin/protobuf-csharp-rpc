@@ -10,6 +10,7 @@ _ReSharper.*
 *.user
 *.suo
 *.pdb
+*.nupkg
 
 *.log
 TestResult.xml

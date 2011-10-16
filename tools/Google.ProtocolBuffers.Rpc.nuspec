@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<package 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:noNamespaceSchemaLocation="nuspec.xsd"
+>
+  <metadata>
+    
+    <version>$version$</version>
+    <id>Google.ProtocolBuffers.Rpc</id>
+    <title>Google.ProtocolBuffers.Rpc</title>
+    <authors>Roger Knapp</authors>
+    <owners>Roger Knapp</owners>
+    <language>en-US</language>
+    <licenseUrl>http://csharptest.net/src/LICENSE-2.0.txt</licenseUrl>
+    <projectUrl>http://code.google.com/p/protobuf-csharp-rpc/</projectUrl>
+    <iconUrl>http://csharptest.net/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright 2008-2011 by Roger Knapp, Licensed under the Apache License, Version 2.0</copyright>
+
+    <tags>B+ Tree BPlus BTree BPlusTree Dictionary Binary File Storage</tags>
+    <summary>A small rpc library for using Google's ProtoBuffer services over Win32 RPC on LRPC/TCP/Named Pipes.  Integrates with NTLM/Kerberos authentication.</summary>
+    <releaseNotes>See the main project page (http://code.google.com/p/protobuf-csharp-rpc/) for release notes.</releaseNotes>
+    <description>
+      <![CDATA[
+Google.ProtocolBuffers.Rpc uses the Win32 RPC Interop library, CSharpTest.Net.RpcLibrary, as a primary transport for Protobuffer services. 
+Extremely fast, secure, extensible, and reliable.
+]]>
+    </description>
+
+    <references>
+      <reference file="Google.ProtocolBuffers.Rpc.dll"/>
+    </references>
+
+    <dependencies>
+      <dependency id="CSharpTest.Net.RpcLibrary" version="1.11.924.348" />
+      <dependency id="Google.ProtocolBuffers" version="2.4.1.473" />
+    </dependencies>
+  
+  </metadata>
+  
+  <files>
+    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.dll" target="lib\net20" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.pdb" target="lib\net20" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.xml" target="lib\net20" />
+
+    <file src="..\src\ProtocolBuffers.Rpc\**\*.cs" target="src\src\ProtocolBuffers.Rpc\"/>
+	<file src="..\proto\google\protobuf\CSharpRpcMessages.Generated.cs" target="src\proto\google\protobuf\"/>
+  </files>
+  
+</package>
