@@ -1,4 +1,4 @@
-﻿#region Copyright 2010-2011 by Roger Knapp, Licensed under the Apache License, Version 2.0
+#region Copyright 2010-2011 by Roger Knapp, Licensed under the Apache License, Version 2.0
 /* Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,8 +21,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("Debug")]
 [assembly: AssemblyCompany("Roger Knapp")]
 [assembly: AssemblyCopyright("Copyright 2010-2011 by Roger Knapp, Licensed under the Apache License, Version 2.0")]
-[assembly: AssemblyVersion("1.11.908.1")]
-[assembly: AssemblyFileVersion("1.11.908.1")]
+[assembly: AssemblyVersion("1.11.1016.3")]
+[assembly: AssemblyFileVersion("1.11.1016.3")]
 [assembly: ObfuscateAssembly(false)]
 [assembly: ComVisible(false)]
 [assembly: GuidAttribute("8103CF1B-3678-4533-9155-01082A33EAF8")]
