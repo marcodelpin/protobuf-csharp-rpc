@@ -16,8 +16,9 @@ IF NOT "%ERRORLEVEL%" == "0" GOTO FAIL
 MOVE Google.ProtocolBuffers.Rpc.%1.symbols.nupkg Google.ProtocolBuffers.Rpc.%1.symbols.zip
 POPD
 
-HG commit -m "1.11.1016.3"
-HG tag 1.11.1016.3
+HG commit -m "%1"
+HG tag %1
+HG push
 
 GOTO EXIT
 
