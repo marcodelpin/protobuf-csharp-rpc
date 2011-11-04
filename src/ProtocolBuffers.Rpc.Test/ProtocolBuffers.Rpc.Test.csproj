@@ -69,10 +69,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\proto\unittest_rpc_interop.proto">
-      <Link>TestProtos\unittest_rpc_interop.proto</Link>
+    <None Include="..\..\proto\UnitTestRpcInterop.proto">
+      <Link>TestProtos\UnitTestRpcInterop.proto</Link>
       <Generator>CmdTool</Generator>
     </None>
+    <None Include="TestProtos\CmdTool.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
