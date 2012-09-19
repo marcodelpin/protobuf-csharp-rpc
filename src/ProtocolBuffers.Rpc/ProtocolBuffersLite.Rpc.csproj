@@ -57,9 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\CSharpTest.Net.RpcLibrary\lib\net20\CSharpTest.Net.RpcLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Google.ProtocolBuffers, PublicKeyToken=55f7125234beb589">
+    <Reference Include="Google.ProtocolBuffersLite, PublicKeyToken=55f7125234beb589">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Google.ProtocolBuffers\lib\net20\Google.ProtocolBuffers.dll</HintPath>
+      <HintPath>..\..\lib\Google.ProtocolBuffersLite\lib\net20\Google.ProtocolBuffersLite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -68,9 +68,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\CSharpTest.Net.RpcLibrary\lib\net40\CSharpTest.Net.RpcLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Google.ProtocolBuffers, PublicKeyToken=55f7125234beb589">
+    <Reference Include="Google.ProtocolBuffersLite, PublicKeyToken=55f7125234beb589">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Google.ProtocolBuffers\lib\net40\Google.ProtocolBuffers.dll</HintPath>
+      <HintPath>..\..\lib\Google.ProtocolBuffersLite\lib\net40\Google.ProtocolBuffersLite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
