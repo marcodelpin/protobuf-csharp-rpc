@@ -43,9 +43,9 @@ Extremely fast, secure, extensible, and reliable.  This version depends on Googl
     <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffersLite.Rpc.pdb" target="lib\net20" />
     <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffersLite.Rpc.xml" target="lib\net20" />
 
-    <file src="..\src\ProtocolBuffers.Rpc\bin4\Release\Google.ProtocolBuffersLite.Rpc.dll" target="lib\net40" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin4\Release\Google.ProtocolBuffersLite.Rpc.pdb" target="lib\net40" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin4\Release\Google.ProtocolBuffersLite.Rpc.xml" target="lib\net40" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin40\Release\Google.ProtocolBuffersLite.Rpc.dll" target="lib\net40" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin40\Release\Google.ProtocolBuffersLite.Rpc.pdb" target="lib\net40" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin40\Release\Google.ProtocolBuffersLite.Rpc.xml" target="lib\net40" />
 
     <file src="..\src\ProtocolBuffers.Rpc\**\*.cs" target="src\src\ProtocolBuffers.Rpc\"/>
 	<file src="..\proto\google\protobuf\CSharpRpcMessagesLite.Generated.cs" target="src\proto\google\protobuf\"/>
