@@ -6,8 +6,8 @@
   <metadata>
     
     <version>$version$</version>
-    <id>Google.ProtocolBuffers.Rpc</id>
-    <title>Google.ProtocolBuffers.Rpc</title>
+    <id>Google.ProtocolBuffersLite.Rpc</id>
+    <title>Google.ProtocolBuffersLite.Rpc</title>
     <authors>Roger Knapp</authors>
     <owners>Roger Knapp</owners>
     <language>en-US</language>
@@ -22,33 +22,33 @@
     <releaseNotes>See the main project page (http://code.google.com/p/protobuf-csharp-rpc/) for release notes.</releaseNotes>
     <description>
       <![CDATA[
-Google.ProtocolBuffers.Rpc uses the Win32 RPC Interop library, CSharpTest.Net.RpcLibrary, as a primary transport for Protobuffer services. 
-Extremely fast, secure, extensible, and reliable.
+Google.ProtocolBuffersLite.Rpc uses the Win32 RPC Interop library, CSharpTest.Net.RpcLibrary, as a primary transport for Protobuffer services. 
+Extremely fast, secure, extensible, and reliable.  This version depends on Google.ProtocolBuffersLite version (optimize_for = LITE_RUNTIME).
 ]]>
     </description>
 
     <references>
-      <reference file="Google.ProtocolBuffers.Rpc.dll"/>
+      <reference file="Google.ProtocolBuffersLite.Rpc.dll"/>
     </references>
 
     <dependencies>
       <dependency id="CSharpTest.Net.RpcLibrary" version="1.11.924.348" />
-      <dependency id="Google.ProtocolBuffers" version="2.4.1.473" />
+      <dependency id="Google.ProtocolBuffersLite" version="2.4.1.473" />
     </dependencies>
   
   </metadata>
   
   <files>
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.dll" target="lib\net20" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.pdb" target="lib\net20" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.xml" target="lib\net20" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffersLite.Rpc.dll" target="lib\net20" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffersLite.Rpc.pdb" target="lib\net20" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffersLite.Rpc.xml" target="lib\net20" />
 
-    <file src="..\src\ProtocolBuffers.Rpc\bin40\Release\Google.ProtocolBuffers.Rpc.dll" target="lib\net40" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin40\Release\Google.ProtocolBuffers.Rpc.pdb" target="lib\net40" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin40\Release\Google.ProtocolBuffers.Rpc.xml" target="lib\net40" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin4\Release\Google.ProtocolBuffersLite.Rpc.dll" target="lib\net40" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin4\Release\Google.ProtocolBuffersLite.Rpc.pdb" target="lib\net40" />
+    <file src="..\src\ProtocolBuffers.Rpc\bin4\Release\Google.ProtocolBuffersLite.Rpc.xml" target="lib\net40" />
 
     <file src="..\src\ProtocolBuffers.Rpc\**\*.cs" target="src\src\ProtocolBuffers.Rpc\"/>
-	<file src="..\proto\google\protobuf\CSharpRpcMessages.Generated.cs" target="src\proto\google\protobuf\"/>
+	<file src="..\proto\google\protobuf\CSharpRpcMessagesLite.Generated.cs" target="src\proto\google\protobuf\"/>
   </files>
   
 </package>
