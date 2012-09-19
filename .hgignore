@@ -14,5 +14,6 @@ _ReSharper.*
 *.nupkg
 
 *.log
+tools/*.zip
 TestResult.xml
 version.bat
