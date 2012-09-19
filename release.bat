@@ -16,17 +16,20 @@ NUGET pack Google.ProtocolBuffersLite.Rpc.nuspec -Version "%1" -Symbols
 IF NOT "%ERRORLEVEL%" == "0" GOTO FAIL
 
 PAUSE Push package for version %1?
-
+REM * Google.ProtocolBuffers.Rpc
 NUGET push Google.ProtocolBuffers.Rpc.%1.nupkg
 IF NOT "%ERRORLEVEL%" == "0" GOTO FAIL
 MOVE Google.ProtocolBuffers.Rpc.%1.nupkg Google.ProtocolBuffers.Rpc.%1.zip
-NUGET push Google.ProtocolBuffers.Rpc.%1.symbols.nupkg
-IF NOT "%ERRORLEVEL%" == "0" GOTO FAIL
-MOVE Google.ProtocolBuffers.Rpc.%1.symbols.nupkg Google.ProtocolBuffers.Rpc.%1.symbols.zip
-
+REM * Google.ProtocolBuffersLite.Rpc
 NUGET push Google.ProtocolBuffersLite.Rpc.%1.nupkg
 IF NOT "%ERRORLEVEL%" == "0" GOTO FAIL
 MOVE Google.ProtocolBuffersLite.Rpc.%1.nupkg Google.ProtocolBuffersLite.Rpc.%1.zip
+
+REM * Google.ProtocolBuffers.Rpc (debug)
+NUGET push Google.ProtocolBuffers.Rpc.%1.symbols.nupkg
+IF NOT "%ERRORLEVEL%" == "0" GOTO FAIL
+MOVE Google.ProtocolBuffers.Rpc.%1.symbols.nupkg Google.ProtocolBuffers.Rpc.%1.symbols.zip
+REM * Google.ProtocolBuffersLite.Rpc (debug)
 NUGET push Google.ProtocolBuffersLite.Rpc.%1.symbols.nupkg
 IF NOT "%ERRORLEVEL%" == "0" GOTO FAIL
 MOVE Google.ProtocolBuffersLite.Rpc.%1.symbols.nupkg Google.ProtocolBuffersLite.Rpc.%1.symbols.zip
