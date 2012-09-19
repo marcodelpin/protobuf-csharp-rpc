@@ -44,6 +44,8 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
                 int runCount = int.Parse(args[3]);
                 for (int run = 0; run <= runCount; run++)
                 {
+                    bool bStop = false;
+                    int repeatedCount = int.Parse(args[4]);
                     bool bReport = run > 0;
                     int nThreads = int.Parse(args[2]);
                     Thread[] threads = new Thread[nThreads];
@@ -62,20 +64,20 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
                                     if (signals.BeginWait())
                                     {
                                         Stopwatch timer = Stopwatch.StartNew();
-                                        int success = 0, requests = int.Parse(args[4]);
+                                        int success = 0;
                                         RunClient(
-                                            requests >= 0 ? requests : int.MaxValue,
-                                            requests < 0 ? DateTime.UtcNow.AddMilliseconds(-requests) : DateTime.UtcNow.AddMinutes(1), 
+                                            repeatedCount >= 0 ? repeatedCount : int.MaxValue,
+                                            ref bStop, 
                                             int.Parse(args[5]), out success);
                                         timer.Stop();
 
-                                        if (requests != success)
+                                        if (repeatedCount != success)
                                             Interlocked.Increment(ref counter[1]);
 
                                         if (bReport)
                                         {
-                                            if (requests < 0)
-                                                info[4] = (-requests).ToString();
+                                            if (repeatedCount < 0)
+                                                info[4] = (-repeatedCount).ToString();
                                             lock (typeof (Console))
                                                 Console.WriteLine("{0} \t{1} \t{2:n0} \t{3:n2}", String.Join(" \t", info),
                                                                   success, timer.ElapsedMilliseconds,
@@ -91,6 +93,14 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
                         Thread.Sleep(1);
 
                     signals.Ready(int.Parse(args[1]));
+
+                    bStop = signals.BeginWait() == false;
+                    if (!bStop && repeatedCount < 0)
+                    {
+                        Thread.Sleep(-repeatedCount);
+                        bStop = true;
+                    }
+
                     foreach (Thread t in threads)
                         t.Join();
 
@@ -108,6 +118,6 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
         }
 
         protected abstract IDisposable StartServer(int responseSize);
-        protected abstract void RunClient(int repeatedCount, DateTime stopTime, int responseSize, out int successful);
+        protected abstract void RunClient(int repeatedCount, ref bool bStop, int responseSize, out int successful);
     }
 }

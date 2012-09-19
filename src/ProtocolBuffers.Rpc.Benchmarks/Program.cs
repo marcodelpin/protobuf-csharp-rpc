@@ -124,8 +124,8 @@ namespace ProtocolBuffers.Rpc.Benchmarks
                     int clientRuns = 3;
                     foreach (int numclients in new[] { 5 })
                     foreach (int numthreads in new[] { 3 })
-                    foreach (int repeated in new[] { -5000 })
-                    foreach (int recordSize in new[] { 0, 10, 100 })
+                    foreach (int repeated in new[] { -50000 })
+                    foreach (int recordSize in new[] { 1000 })
                     {
                         TestSignals signal = new TestSignals(Guid.NewGuid().ToString("N"));
                         try

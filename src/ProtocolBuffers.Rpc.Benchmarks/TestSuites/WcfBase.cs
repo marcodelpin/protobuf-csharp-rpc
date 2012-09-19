@@ -38,13 +38,12 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
             return host;
         }
 
-        protected override void RunClient(int repeatedCount, DateTime stopTime, int responseSize, out int successful)
+        protected override void RunClient(int repeatedCount, ref bool bStop, int responseSize, out int successful)
         {
             successful = 0;
             IWcfSampleService client = CreateChannel();
-            long tickStop = stopTime.ToUniversalTime().Ticks;
 
-            for (int count = 0; count < repeatedCount; count++)
+            for (int count = 0; !bStop && count < repeatedCount; count++)
             {
                 WcfSampleResponse response = client.Test(
                     new WcfSampleRequest
@@ -65,8 +64,6 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
 
                 GC.KeepAlive(response);
                 successful++;
-                if (repeatedCount == int.MaxValue && successful % 10 == 0 && DateTime.UtcNow.Ticks > tickStop)
-                    break;
             }
         }
     }

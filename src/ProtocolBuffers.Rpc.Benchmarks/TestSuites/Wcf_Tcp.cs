@@ -44,6 +44,7 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
             binding.Name = name;
             binding.MaxConnections = 255;
             binding.TransferMode = TransferMode.Streamed;
+            binding.MaxReceivedMessageSize = int.MaxValue;
             return binding;
         }
     }

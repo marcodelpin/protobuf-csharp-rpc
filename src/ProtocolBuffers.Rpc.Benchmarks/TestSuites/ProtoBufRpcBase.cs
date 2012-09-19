@@ -43,13 +43,12 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
             return _service;
         }
 
-        protected override void RunClient(int repeatedCount, DateTime stopTime, int responseSize, out int successful)
+        protected override void RunClient(int repeatedCount, ref bool bStop, int responseSize, out int successful)
         {
             successful = 0;
-            long tickStop = stopTime.ToUniversalTime().Ticks;
             using (SampleService client = new SampleService(Connect(Iid)))
             {
-                for(int count = 0; count < repeatedCount; count++)
+                for(int count = 0; !bStop && count < repeatedCount; count++)
                 {
                     SampleResponse response = client.Test(
                         SampleRequest.CreateBuilder()
@@ -59,8 +58,6 @@ namespace ProtocolBuffers.Rpc.Benchmarks.TestSuites
                     
                     GC.KeepAlive(response);
                     successful++;
-                    if (repeatedCount == int.MaxValue && successful % 10 == 0 && DateTime.UtcNow.Ticks > tickStop)
-                        break;
                 }
             }
         }
