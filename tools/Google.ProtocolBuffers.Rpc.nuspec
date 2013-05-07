@@ -33,7 +33,7 @@ Extremely fast, secure, extensible, and reliable.
 
     <dependencies>
       <dependency id="CSharpTest.Net.RpcLibrary" version="1.11.924.348" />
-      <dependency id="Google.ProtocolBuffers" version="2.4.1.473" />
+      <dependency id="Google.ProtocolBuffers" version="2.4.1.521" />
     </dependencies>
   
   </metadata>
