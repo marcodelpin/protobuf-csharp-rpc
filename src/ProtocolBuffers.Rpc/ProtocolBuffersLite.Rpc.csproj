@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,8 +12,9 @@
     <AssemblyName>Google.ProtocolBuffersLite.Rpc</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\..\keys\protobuf-csharp-rpc.snk</AssemblyOriginatorKeyFile>
+    <NugetPackageFlavor>net20</NugetPackageFlavor>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +27,7 @@
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,39 +40,48 @@
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <IntermediateOutputPath>obj\Release\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug40|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug40\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <IntermediateOutputPath>obj\Debug40\</IntermediateOutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <NugetPackageFlavor>net40</NugetPackageFlavor>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release40|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin40\Release\</OutputPath>
+    <OutputPath>bin\Release40\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <IntermediateOutputPath>obj\Release40\</IntermediateOutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <NugetPackageFlavor>net40</NugetPackageFlavor>
   </PropertyGroup>
-  <ItemGroup Condition=" '$(TargetFrameworkVersion)' == 'v2.0' ">
-    <Reference Include="CSharpTest.Net.RpcLibrary, PublicKeyToken=06aee00cce822474">
+  <ItemGroup>
+    <Reference Include="CSharpTest.Net.RpcLibrary, Version=14.327.1832.1051, Culture=neutral, PublicKeyToken=06aee00cce822474, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\CSharpTest.Net.RpcLibrary\lib\net20\CSharpTest.Net.RpcLibrary.dll</HintPath>
+      <HintPath>..\..\packages\CSharpTest.Net.RpcLibrary.14.327.1832.1051\lib\$(NugetPackageFlavor)\CSharpTest.Net.RpcLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Google.ProtocolBuffersLite, PublicKeyToken=55f7125234beb589">
+    <Reference Include="Google.ProtocolBuffersLite, Version=2.4.1.521, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Google.ProtocolBuffersLite\lib\net20\Google.ProtocolBuffersLite.dll</HintPath>
+      <HintPath>..\..\packages\Google.ProtocolBuffersLite.2.4.1.521\lib\$(NugetPackageFlavor)\Google.ProtocolBuffersLite.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFrameworkVersion)' == 'v4.0' ">
-    <Reference Include="CSharpTest.Net.RpcLibrary, PublicKeyToken=06aee00cce822474">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\CSharpTest.Net.RpcLibrary\lib\net40\CSharpTest.Net.RpcLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.ProtocolBuffersLite, PublicKeyToken=55f7125234beb589">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Google.ProtocolBuffersLite\lib\net40\Google.ProtocolBuffersLite.dll</HintPath>
+    <Reference Include="Google.ProtocolBuffersLite.Serialization">
+      <HintPath>..\..\packages\Google.ProtocolBuffersLite.2.4.1.521\lib\$(NugetPackageFlavor)\Google.ProtocolBuffersLite.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -97,8 +108,16 @@
       <Generator>CmdTool</Generator>
     </None>
     <None Include="Messages\CmdTool.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -39,7 +39,7 @@ namespace Google.ProtocolBuffers.Rpc.Win32Rpc
             return AddProtocol(protocol, endpoint, RpcServerApi.MAX_CALL_LIMIT);
         }
 
-        public Win32RpcServer AddProtocol(string protocol, string endpoint, uint maxCallLimit)
+        public Win32RpcServer AddProtocol(string protocol, string endpoint, int maxCallLimit)
         {
             _server.AddProtocol(Win32RpcClient.Parse(protocol), endpoint, maxCallLimit);
             return this;

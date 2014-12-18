@@ -2,7 +2,7 @@
 
 REM ***** Update dependencies *****
 "%~dp0tools\NuGet.exe" install -x -OutputDirectory "%~dp0lib" NUnit -Version 2.5.10.11092
-"%~dp0tools\NuGet.exe" install -x -OutputDirectory "%~dp0lib" CSharpTest.Net.RpcLibrary -Version 1.11.924.348
+"%~dp0tools\NuGet.exe" install -x -OutputDirectory "%~dp0lib" CSharpTest.Net.RpcLibrary -Version 14.327.1832.1051
 "%~dp0tools\NuGet.exe" install -x -OutputDirectory "%~dp0lib" Google.ProtocolBuffers -Version 2.4.1.521
 "%~dp0tools\NuGet.exe" install -x -OutputDirectory "%~dp0lib" Google.ProtocolBuffersLite -Version 2.4.1.521
 
