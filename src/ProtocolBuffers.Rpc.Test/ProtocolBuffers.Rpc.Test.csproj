@@ -92,6 +92,7 @@
     <Compile Include="..\..\proto\UnitTestRpcInterop.Generated.cs">
       <Link>TestProtos\UnitTestRpcInterop.Generated.cs</Link>
     </Compile>
+    <Compile Include="ExampleRpcConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RpcExceptionTest.cs" />
     <Compile Include="SampleFilters\AuthorizeFilter.cs" />

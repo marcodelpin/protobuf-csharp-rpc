@@ -36,6 +36,34 @@ namespace Google.ProtocolBuffers
         }
 
         [Test]
+        public void DemoExampleConnection()
+        {
+            //obtain the interface id for rpc registration
+            Guid iid = Marshal.GenerateGuidForType(typeof(ISearchService));
+            //Create the server with a stub pointing to our implementation
+            using (RpcServer.CreateRpc(iid, new SearchService.ServerStub(new AuthenticatedSearch()))
+                //allow GSS_NEGOTIATE
+                .AddAuthNegotiate()
+                //LRPC named 'lrpctest'
+                .AddProtocol("ncalrpc", "lrpctest")
+                .AddProtocol("ncacn_ip_tcp", "12345")
+                .AddProtocol("ncacn_np", @"\pipe\p1")
+                //Begin responding
+                .StartListening())
+            {
+                // Demonstrate a typical client-implemented wrapper that can parse URIs, retry connections, etc.
+                using (var client = new SearchService(new ExampleRpcConnection(iid, "lrpc://localhost/lrpctest")))
+                    Assert.AreEqual(1, client.Search(SearchRequest.CreateBuilder().AddCriteria("Test1").Build()).ResultsCount);
+
+                using (var client = new SearchService(new ExampleRpcConnection(iid, "rpc://self@localhost:12345")))
+                    Assert.AreEqual(1, client.Search(SearchRequest.CreateBuilder().AddCriteria("Test2").Build()).ResultsCount);
+
+                using (var client = new SearchService(new ExampleRpcConnection(iid, "np://self@localhost/pipe/p1")))
+                    Assert.AreEqual(1, client.Search(SearchRequest.CreateBuilder().AddCriteria("Test3").Build()).ResultsCount);
+            }
+        }
+
+        [Test]
         public void DemoRpcOverLrpc()
         {
             //obtain the interface id for rpc registration
