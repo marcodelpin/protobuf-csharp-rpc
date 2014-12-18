@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:noNamespaceSchemaLocation="nuspec.xsd"
+  xsi:noNamespaceSchemaLocation="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
 >
   <metadata>
     
