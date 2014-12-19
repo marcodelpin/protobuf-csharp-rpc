@@ -39,16 +39,16 @@ Extremely fast, secure, extensible, and reliable.
   </metadata>
   
   <files>
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.dll" target="lib\net20" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.pdb" target="lib\net20" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.xml" target="lib\net20" />
+    <file src="src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.dll" target="lib\net20" />
+    <file src="src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.pdb" target="lib\net20" />
+    <file src="src\ProtocolBuffers.Rpc\bin\Release\Google.ProtocolBuffers.Rpc.xml" target="lib\net20" />
 
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release40\Google.ProtocolBuffers.Rpc.dll" target="lib\net40" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release40\Google.ProtocolBuffers.Rpc.pdb" target="lib\net40" />
-    <file src="..\src\ProtocolBuffers.Rpc\bin\Release40\Google.ProtocolBuffers.Rpc.xml" target="lib\net40" />
+    <file src="src\ProtocolBuffers.Rpc\bin\Release40\Google.ProtocolBuffers.Rpc.dll" target="lib\net40" />
+    <file src="src\ProtocolBuffers.Rpc\bin\Release40\Google.ProtocolBuffers.Rpc.pdb" target="lib\net40" />
+    <file src="src\ProtocolBuffers.Rpc\bin\Release40\Google.ProtocolBuffers.Rpc.xml" target="lib\net40" />
 
-    <file src="..\src\ProtocolBuffers.Rpc\**\*.cs" target="src\src\ProtocolBuffers.Rpc\"/>
-	<file src="..\proto\google\protobuf\CSharpRpcMessages.Generated.cs" target="src\proto\google\protobuf\"/>
+    <file src="src\ProtocolBuffers.Rpc\**\*.cs" target="src\src\ProtocolBuffers.Rpc\"/>
+	<file src="proto\google\protobuf\CSharpRpcMessages.Generated.cs" target="src\proto\google\protobuf\"/>
   </files>
   
 </package>
